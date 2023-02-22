@@ -2,11 +2,10 @@
 # (т.е. числа вида 2k), не превосходящие числа N.
 
 n = int(input('Введите число: '))
-degrees = 2
+degrees = 0
 
-while degrees <= n:
-    degrees *=2  
-    if degrees <= n: 
-        print(degrees, end = ' ')
+while 2 ** degrees <= n:
+    print(2 ** degrees, end = ' ')
+    degrees += 1
 
 
