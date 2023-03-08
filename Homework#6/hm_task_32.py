@@ -15,5 +15,5 @@ print(list)
 min = int(input('Введите минимум диапазона: '))
 max = int(input('Введите максимум диапазона: '))
 
-list_1 = [i for i in list if i > min and i < max]
+list_1 = [i for i in list if i >= min and i <= max]
 print(list_1)
