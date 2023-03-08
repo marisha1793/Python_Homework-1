@@ -8,3 +8,4 @@ a = {int(input()) for _ in range(int(input('Введите количество 
 b = {int(input()) for _ in range(int(input('Введите количество элементов второго множества: ')))}
 c = a.intersection(b)
 print(c)
+
