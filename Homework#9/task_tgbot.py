@@ -18,8 +18,9 @@ def welcome(message):
 
     item1 = telebot.types.KeyboardButton('Фильмы')
     item2 = telebot.types.KeyboardButton('Столицы стран')
+    item3 = telebot.types.KeyboardButton('Квадрат числа')
 
-    markup.add(item1, item2)
+    markup.add(item1, item2, item3)
 
     bot.send_message(message.chat.id, 'Добро пожаловать! Выбери нужный пункт меню: ', reply_markup=markup)
 
@@ -53,6 +54,10 @@ def answer(message):
 
         bot.send_message(message.chat.id, 'Выберите страну, чтобы узнать ее столицу', reply_markup=markup)
         bot.register_next_step_handler(message, countries)
+    elif message.text.lower() == 'квадрат числа':
+        bot.send_message(message.chat.id, 'Напиши, какое число возвести в квадрат')
+        bot.register_next_step_handler(message, square)
+
 
 @bot.message_handler(content_types=['text'])
 def films(message):
@@ -62,5 +67,9 @@ def films(message):
 def countries(message):
     bot.send_message(message.chat.id, some_dict1[message.text])
 
+@bot.message_handler(content_types=['text'])
+def square(message):
+    num = int(message.text)
+    bot.send_message(message.chat.id, f'{num*num}')
 
 bot.polling(none_stop=True)
